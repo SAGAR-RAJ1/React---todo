@@ -25,7 +25,7 @@ const todo =()=>{
       <h2>Tasks to do</h2>
       <ul>
          {todos.map((todo) => {
-         return <li>{todo.task}</li>
+         return <li key={todo.id}>{todo.task}</li>
          })}
       </ul>
       </div>
