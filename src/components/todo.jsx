@@ -9,9 +9,9 @@ const todo =()=>{
     const [newTodo, setnewTodo] = useState("")
     
     function AddTodo () {
-        settodos([...todos,{task:newTodo,id:uuidv4()}])
-        console.log("your word is ",newTodo);
-        console.log(todos)
+       settodos((prevTodo)=>{
+        return [...prevTodo,{task:newTodo,id:uuidv4()}]
+       })
     }
     function updateTodovalue (event){
         setnewTodo(event.target.value)
