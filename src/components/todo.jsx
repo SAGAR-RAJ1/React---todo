@@ -16,6 +16,11 @@ const todo =()=>{
     function updateTodovalue (event){
         setnewTodo(event.target.value)
     }
+    function deleteTodo(id){
+    //    console.log(id)
+    let copyArray = todos.filter((todo)=>todo.id != id)
+    settodos(copyArray)
+    }
     return (
       <div>
         <input type="text" placeholder="Add a task" value={newTodo} onChange={updateTodovalue}/>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -25,7 +30,11 @@ const todo =()=>{
       <h2>Tasks to do</h2>
       <ul>
          {todos.map((todo) => {
-         return <li key={todo.id}>{todo.task}</li>
+         return <li key={todo.id}>
+            <span>{todo.task}</span>&nbsp;&nbsp;&nbsp;
+            <button onClick={()=>deleteTodo(todo.id)}>Delete</button>
+            <br /><br />
+            </li>
          })}
       </ul>
       </div>
